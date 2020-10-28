@@ -3,19 +3,108 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8"/>
-<title>Qedge Application</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body{background-color: #cfd6bass;}
+
+body{background-color: lightgrey;}
+
+h1{
+  color: blue;
+  font-family: verdana;
+  font-size: 100%;
+}
+
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/*Defining Grid Styles*/
+* {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+
 </style>
+
+
+<title>Qedge Application</title>
 </head>
+
 <body>
+<header>
+  <h2>Add New Vehicle Details</h2>
+</header>
 
 <div align="center">
-    <h1>Qedge Product List</h1>
-    <a href="new">Create New Product</a>
-  	<a href="logout">Logout</a>  
+    <h1>Complete List</h1>
+    <input type = "button" (click)="new()" value = "Add New Car"
+    /*<a href="new">Create New Product</a>
+  	  */
     <br/><br/>
-    <table border="1" cellpadding="10">
+    <table style="border:2px solid DodgerBlue;" border="1" cellpadding="10">
         <thead>
             <tr>
                 <th>Product ID</th>
@@ -42,5 +131,33 @@ body{background-color: #cfd6bass;}
         </tbody>
     </table>
 </div>    
+
+<section>
+    <h2>Popular Brands</h2>
+<div class="row">
+    
+  <div class="column">
+	<a title="Maruti Cars" href="https://www.marutisuzuki.com/"><img alt="Maruti" src="https://stimg.cardekho.com/pwa/img/brandLogo_168x84/maruti.jpg" style="width:60px;height:60px;"></a>
+	</div>
+	
+	<div class="column">
+	<a title=" Hyundai Cars" href="https://www.hyundai.com/in/en"><img alt="Hyundai" src="https://stimg.cardekho.com/pwa/img/brandLogo_168x84/hyundai.jpg" style="width:60px;height:60px;"></a>
+		</div>
+		
+	<div class="column">
+	<a title="Tata" href="https://www.tatamotors.com/"><img alt="Tata" src="https://stimg.cardekho.com/pwa/img/brandLogo_168x84/hyundai.jpg" style="width:60px;height:60px;"></a>
+		</div>
+		
+	<div class="column">
+	<a title="Mahindra" href="https://auto.mahindra.com/"><img alt="Mahindra" src="https://stimg.cardekho.com/pwa/img/brandLogo_168x84/mahindra.jpg" style="width:60px;height:60px;"></a>
+		</div>
+	</div>
+</section> 
+
+
+<footer>
+  <a href="www.google.com"></a> About Us </a>
+  <a href="logout"> Logout </a>
+</footer>
 </body>
 </html>
